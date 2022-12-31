@@ -14,6 +14,7 @@
 #include<numeric>
 #include<queue>
 #include<stack>
+#include<climits>
 
 
 
@@ -34,39 +35,30 @@
 using namespace std;
 
 
-bool comp(ll int&a, ll int &c) {return a>c;}
-
 void solve()
 {
     //your code goes here
-    ll int n,m;
-    cin>>n>>m;
+    // ll int n,m;
+    // cin>>n>>m;
     
-    vector<ll int> a(n);
-    for(ll int &val : a)cin>>val;
+    // vector<ll int> a(n);    //o(n)
+    // for(ll int &val : a)cin>>val;
 
-    vector<ll int> b(m);
-    for(ll int &val : b) cin>>val;
+    // vector<ll int> b(m);    //o(m)
+    // for(ll int &val : b) cin>>val;
 
-    sort(all(b),comp);
-
-    for(ll int i = 0; i<min(n,m); ++i)
-    {
-        auto a_it = min_element(all(a));
-
-        auto b_it = max_element(all(b));
-
-        ll int a_ind = a_it - a.begin();
-        ll int b_ind = b_it - b.begin();
-
-        a[a_ind] = b[b_ind];
-        b.erase(b_it);
-    }
-    ll int sum = 0;
-    cout<<accumulate(all(a),sum)<<endl;
+    // for(ll int i = 0; i<m; ++i) //o(m)
+    // {
+    //     auto a_it = min_element(all(a)); //o(logn)
+    //     a[a_it - a.begin()] = b[i];
+    // }
+    
+    // ll int sum = 0;
+    // cout<<accumulate(all(a),sum)<<endl;
 
 
 
+    
 }
 
 int main()
