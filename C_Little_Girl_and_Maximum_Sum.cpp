@@ -30,7 +30,7 @@
 #define me(i,start,end)         for(int i =start; i<end; ++i)
 #define she(i,start,end)        for(int i =end-1; i>=start; --i)
 #define all(v)                  v.begin() , v.end()
-#define w(x)                    int x;cin>>x;while(x--)
+#define w                       int x;cin>>x;while(x--)
 
 using namespace std;
 
@@ -74,10 +74,8 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
-    int t;
-    t=1;
-    while(t--)
-    {
+    
+    w{
         solve();
     }return 0;
 }
