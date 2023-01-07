@@ -34,31 +34,40 @@
 
 using namespace std;
 
-void revToLeft(vector<int> &v, int k)
-{
-    k = k%v.size();
-    int n = v.size();
-    reverse(all(v));
-    reverse(v.begin(),v.begin()+n-k);
-    reverse(v.begin()+n-k,v.end());
-}
+
 void solve()
 {
     //your code goes here
-    int n;
-    cin>>n;
-    vi v(n,0);
+    ll n,q;
+    cin>>n>>q;
+    vector<ll> v(n,0);
     for(auto &val: v)cin>>val;
+    vector<ll> d(n+2,0);
 
-    int x,b=0;
-    w(m)
+
+
+    while(q--)
     {
-        cin>>x;
-        b = (b+x)%v.size();
+        ll a,b;
+        cin>>a>>b;
+        d[a]+= 1;
+        d[b+1]-= 1;
     }
-    cout<<v[b]<<endl; 
 
-    
+    for(int i =1; i<=n+1; ++i)
+    {
+        d[i] += d[i-1];
+    }
+
+    sort(all(d));
+    sort(all(v));
+
+    ll ct=0;
+    for(int i =0; i<n;++i)
+    {
+        ct += d[i+2]*v[i];
+    }
+    cout<<ct<<endl;
 }
 
 int main()
@@ -66,7 +75,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);  
     int t;
-    cin>>t;
+    t=1;
     while(t--)
     {
         solve();
